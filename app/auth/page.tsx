@@ -2,6 +2,7 @@
 import { useState } from 'react';
 import { useRouter } from 'next/navigation';
 import styles from './AuthForm.module.scss';
+
 import Input from '@/components/Input';
 import Button from '@/components/Button';
 
@@ -28,16 +29,19 @@ export default function AuthPage() {
   };
 
   return (
-    <div className={styles.container}>
-      <h2>ورود</h2>
-      <Input
-        type="text"
-        placeholder="شماره موبایل (مثلاً 09123456789)"
-        value={phone}
-        onChange={(e) => setPhone(e.target.value)}
-      />
-      {error && <p className={styles.error}>{error}</p>}
-      <Button onClick={handleLogin}>ورود</Button>
-    </div>
+  <div className={styles.container}>
+  <h2>ورود</h2>
+  <Input
+    className={styles.input}
+    type="text"
+    placeholder="شماره موبایل (مثلاً 09123456789)"
+    value={phone}
+    onChange={(e) => setPhone(e.target.value)}
+  />
+  {error && <p className={styles.error}>{error}</p>}
+  <Button className={styles.button} onClick={handleLogin}>
+    ورود
+  </Button>
+</div>
   );
 }
